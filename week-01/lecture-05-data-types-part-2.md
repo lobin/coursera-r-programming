@@ -113,7 +113,7 @@ Lists
 
 Lists are a special type of vector that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well.
 
-	> x <- list(1, "a" TRUE, 1 + 4i)
+	> x <- list(1, "a", TRUE, 1 + 4i)
 	> x
 	[[1]]
 	[1] 1
