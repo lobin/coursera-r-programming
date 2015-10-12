@@ -88,7 +88,7 @@ Matrices can also be created directly from vectors by adding a dimension attribu
 	> m <- 1:10
 	> m
 	[1]  1 2 3 4 5 6 7 8 9 10
-	> dim(x) <- c(2, 5)
+	> dim(m) <- c(2, 5)
 	> m
 	     [,1] [,2] [,3] [,4] [,5]
 	[1,]    1    3    5    7    9
