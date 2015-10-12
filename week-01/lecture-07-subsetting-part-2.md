@@ -22,7 +22,7 @@ Subsetting Lists
 Another example:
 
 	> x <-list(foo = 1:4, bar = 0.6, baz = "hello")
-	> x[c(1, 3)]
+	> x[c(1, 3)] 
 	$foo
 	[1] 1 2 3 4
 	
@@ -61,7 +61,7 @@ Partial Matching
 
 Partial matching of names is allowed with [[ and $
 
-	> x <- list(aardvark = 1.5)
+	> x <- list(aardvark = 1:5)
 	> x$a
 	[1] 1 2 3 4 5
 	> x [["a"]]
