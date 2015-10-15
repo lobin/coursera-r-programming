@@ -18,7 +18,7 @@ Sometimes there will be more than one condition in the test.
 
 	z <- 5
 	
-	while(z >= 3 && z<= 10) {
+	while(z >= 0 && z<= 10) {
 		print(z)
 		coin <- rbinom(1, 1, 0.5)
 		
@@ -38,15 +38,17 @@ repeat
 repeat initiates an infinite loop; these are not commonly used in statistical applications but they do have their uses. The only way to exit a repeat loops is to call break.
 
 	x0 <- 1
-	tol <- 1e-8
+	tot <- 0
 
 	repeat {
-		x1 <- computeEstimate()
-	
-		if(abs(x1 - x0) < tot) {
+		x1 <- sample(10,1)
+	print(cat("x1",x1))
+	print(x0)
+		if(abs(x1 - x0) <= tot) {
 			break
 		} else {
 			x0 <- x1
+		
 		}
 	}
 
