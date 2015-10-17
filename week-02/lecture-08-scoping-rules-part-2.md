@@ -72,9 +72,9 @@ What is the value of f(3)?
 When a function is defined in the global environment and is subsequently called from the global environment, then the defining environment and the calling environment are the same. This can sometimes give the appearance of dynamic scoping.
 
 	> g<- function(x) {
-	+ 	a <- 3
-	+ 	x + a + y
-	+ }
+	 	a <- 3
+	 	x + a + y
+	 }
 	> g(2)
 	Error in g(2) : object "y" not found
 	> y <-3

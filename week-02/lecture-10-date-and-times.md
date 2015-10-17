@@ -39,11 +39,11 @@ There are a number of generic functions that work on the dates and times.
 
 Times can be coerced from a character string using the as.POSIXlt or as.POSIXct function.
 
-	> x <- Sys,time()
+	> x <- Sys.time()
 	x
 	## [1] "2013-01-24 22:04:14 EST"
-	p <- as POSIXlt(x)
-	names(unclass℗
+	p <- as.POSIXlt(x)
+	names(unclass(p))
 	## [1] "sec" "min" "hour" "mday" "mon"
 	## [6] "year" "wday" "yday" "isdst"
 	p$sec
@@ -64,7 +64,7 @@ you can also use the POSIXct format:
 
 Finally there is the strptime function in case your dates are written in a different format.
 
-	datestring <- c("January 10, 2012 10:40", "December 9, 2011")
+	datestring <- c("Styczeń 10, 2012 10:40", "December 9, 2011")
 	x <- strptime(datestring, "%B %d, %Y %H:%M")
 	x
 	## [1] "2012-01-10 10:40:00" "2011-12-09 09:10:00"
@@ -80,7 +80,7 @@ Operations on Dates and Times
 You can use mathematical operations on dates and times. Well really just + and -. you can do comparisons too (_i.e._ ==, <=)
 
 	x <- as.Date("2012-01-01")
-	y <- strptime("9 January 2011 11:34:21", "%d %b %Y %H:%M:%S")
+	y <- strptime("9 Styczeń 2011 11:34:21", "%d %b %Y %H:%M:%S")
 	x-y
 	## Warning: Incompatible methods ("-.Date",)
 	## "-.POSIXt") for "-"
@@ -94,8 +94,8 @@ Even keep track of leap years, leap seconds, daylight savings, and time zones.
 	x <- as.Date("2012-03-01"); y <- as.Date("2012-02-28")
 	x-y
 	## Time difference of 2 days
-	x <- as.POSIXct("2012-10-25 01:00:00")
-	y <- as.POSIXct("2012-10-25 06:00:00", tz = "GMT")
+	x <- as.POSIXct("2012-10-25 01:00:00", tz="GMT")
+	y <- as.POSIXct("2012-10-25 06:00:00", tz = "CET")
 	y-x
 	## Time difference of 1 hours
 

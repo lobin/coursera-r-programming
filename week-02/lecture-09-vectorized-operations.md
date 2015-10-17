@@ -1,7 +1,7 @@
 Vectorized Operations
 =====================
 
-Many operations in R are vectorized kaing the code more efficient, concise, and easier to read.
+Many operations in R are vectorized making the code more efficient, concise, and easier to read.
 
 	> x <- 1:4; y <- 6:9
 	> x + y
@@ -19,7 +19,7 @@ Many operations in R are vectorized kaing the code more efficient, concise, and 
 
 In other languages you might have to run a loop to add two vectors together. But in R x + y acts as you'd expect and sums the two vectors.
 
-	> x <- matrix(1:4, 2, 2); y <= matrix(rep(10, 4), 2, 2)
+	> x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
 	> x * y		## element-wise multiplication
 	     [,1] [,2]
 	[1,]   10   30

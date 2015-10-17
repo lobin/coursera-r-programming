@@ -29,7 +29,7 @@ Argument Matching
 
 R function arguments can be matched positionally or by name. So the following calls to sd are all equivalent.
 
-	> mydata < -rnorm(100)
+	> mydata <- rnorm(100)
 	> sd(mydata)
 	> sd(x = mydata)
 	> sd(x = mydata, na.rm = FALSE)

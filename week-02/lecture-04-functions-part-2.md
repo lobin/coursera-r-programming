@@ -4,7 +4,7 @@ Functions - Part 2
 Defining a Function
 -------------------
 
-In addition to not specifying a default value, you can also set an argument to NUKK.
+In addition to not specifying a default value, you can also set an argument to NULL.
 
 	f <- function(a, b = 1, c = 2, d = NULL) {
 		
@@ -44,14 +44,13 @@ The … argument indicate a variable number of arguments that are usually passed
 
 … is often used when extending another function and you don't want to copy the entire argument list of the original function
 
-	myplot <- function(x, y, type = "l", …) {
-		plot(x, y, type = type, …)
-	}
+	myplot <- function(x, y, type = "l",... ) {
+		plot(x, y, type = type,...)	}
 
 Generic functions use … so that extra arguments can be passed to methods (more on this later).
 
 	> mean
-	function(x, …)
+	function(x, ...)
 	UseMethod("mean")
 
 The … is also necessary when the number of arguments passed to the function cannot be known in advance.
