@@ -40,8 +40,8 @@ The actual looping is done internally in C code.
 
 lapply() always returns a list, regardless of the class of the input.
 
-	> x < list(a = 1:5, b = rnorm(10))
-	> lapply(x, mean)
+	x <- list(a=1:5, b=rnorm(10))
+	lapply(x, mean)
 	$a
 	[1] 3
 	
@@ -50,8 +50,8 @@ lapply() always returns a list, regardless of the class of the input.
 
 A more complicated example:
 
-	> x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
-	> lapply(x, mean)
+	x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
+	lapply(x, mean)
 	$a
 	[1] 2.5
 	
@@ -66,8 +66,8 @@ A more complicated example:
 
 Another way to call lapply()
 
-	> x <- 1:4
-	> lapply(x, runif)
+	x <- 1:4
+	lapply(x, runif)
 	[[1]]
 	[1] 0.2675082
 	
@@ -82,8 +82,8 @@ Another way to call lapply()
 
 Pass arguments to your function:
 
-	> x <- 1:4
-	> lapply(x, runif, min = 0, max = 10)
+	 x <- 1:4
+	 lapply(x, runif, min = 0, max = 10)
 	[[1]]
 	[1] 2.7815
 
@@ -98,8 +98,8 @@ Pass arguments to your function:
 
 lapply() and friends make heavy use of anonymous functions.
 
-	> x <- list(a = matrix(1:4, 2, 2), b = matrix(1:6, 3, 2))
-	> x
+	x <- list(a = matrix(1:4, 2, 2), b = matrix(1:6, 3, 2))
+	x
 	$a
 	     [,1] [,2]
 	[1,]    1    3
@@ -113,7 +113,7 @@ lapply() and friends make heavy use of anonymous functions.
 
 An anonymous function for extracting the first column of each matrix:
 
-	> lapply(x, function(elt) elt[,1])
+	lapply(x, function(elt) elt[,1])
 	$a
 	[1] 1 2
 
@@ -131,8 +131,8 @@ sapply() will try to simplify the result of lapply if possible
 
 Here's the lapply() behavior again:
 
-	> x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
-	> lapply(x, mean)
+	 x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
+	 lapply(x, mean)
 	$a
 	[1] 2.5
 
@@ -145,7 +145,7 @@ Here's the lapply() behavior again:
 	$d
 	[1] 5.050767
 
-	> sapply(x, mean)
+	sapply(x, mean)
 	        a         b         c         d 
  	2.500000 -0.211780  1.073342  5.050767
  

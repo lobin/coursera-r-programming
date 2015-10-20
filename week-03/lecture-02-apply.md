@@ -76,7 +76,7 @@ Quantiles of the rows of a matrix.
 
 Average matrix in an array
 
-	> a <- array(rnorm(2 * 2 * 10), c(2, 2, 10))
+	> a <- array(rnorm(2 * 3 * 10), c(2, 3, 10))
 	> apply(a, c(1, 2), mean)
 	            [,1]       [,2]
 	[1,]  0.04107431 0.64450175
