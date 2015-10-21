@@ -20,42 +20,42 @@ Indications that something is not right.
 
 Warnings:
 
-	> log(-1)
+	log(-1)
 	[1] NaN
 	Warning message:
 	In log(-1) : NaNs produced
 
 Example:
 
-	> printmessage <- function(x) {
-	+ 	if(x > 0)
-	+ 		print("x is greater than zero")
-	+ 	else
-	+ 		print("x is less than or equal to zero")
-	+ 	invisible(x)
-	+ }
+	printmessage <- function(x) {
+		if(x > 0)
+			print("x is greater than zero")
+		else
+			print("x is less than or equal to zero")
+		invisible(x)
+	}
 
-	> printmessage(1)
+	printmessage(1)
 	[1] "x is greater than zero"
 
-	> printmessage(NA)
+	printmessage(NA)
 	Error in if (x > 0) print("x is greater than zero") else print("x is less than or equal to zero") : missing value where TRUE/FALSE needed
 
 Another example:
 
-	> printmessage2 <- function(x) {
-	+ 	if(is.na(x))
-	+ 		print("x is a missing value!")
-	+ 	else if(x > 0)
-	+ 		print("x is greater than zero")
-	+ 	else
-	+ 		print("x is less than or equal to zero")
-	+ 	invisible(x)
-	+ }
-	> x <- log(-1)
+	 printmessage2 <- function(x) {
+	 	if(is.na(x))
+	 		print("x is a missing value!")
+	 	else if(x > 0)
+	 		print("x is greater than zero")
+	 	else
+	 		print("x is less than or equal to zero")
+	 	invisible(x)
+	 }
+	 x <- log(-1)
 	Warning message:
 	In log(-1) : NaNs produced
-	> printmessage2(x)
+	 printmessage2(x)
 	[1] "x is a missing value!"
 
 How do you know that something is wrong with your function?

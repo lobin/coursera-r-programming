@@ -40,18 +40,18 @@ Vectorizing a function
 Define a custom function:
 
 	> noise <- function(n, mean, sd) {
-	+ rnorm(n, mean, sd)
-	+ }
+	 rnorm(n, mean, sd)
+	 }
 	> noise(5, 1, 2)
 	[1] 1.9218170  1.3781843 -0.5607748  3.7576328
 	[5] 0.2590522
-	> noise(1:5, 1:5, 2)
+	> noise(1:5, 1:5, 0.1)
 	[1] 1.780955 1.813852 1.827005 1.144564
 	[5] 1.842238
 
 Passing lists to this function does not behave as expected.
 
-	> mapply(noise, 1:5, 1:5, 2)
+	> mapply(noise, 1:5, 1:5, 0.1)
 	[[1]]
 	[1] 2.2496
 
