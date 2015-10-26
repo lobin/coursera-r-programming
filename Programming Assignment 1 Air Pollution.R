@@ -8,16 +8,90 @@ unzip("specdata.zip")
 list.files("specdata")
 
 
-pollutantmean <- function(directory, pollutant, id = 1:33) {
+
+pollutantmean <- function(directory, pollutant, id = 1:332) {
   files_full <- list.files(directory, full.names=TRUE)    #get full list of files names
   files_selected=vector()
   for (i in id){
   files_selected=c(files_selected,files_full[i])  }       #extract relevant file names
   
   lista_selected=lapply(files_selected, read.csv)         #read data from relevant files to the list
-  output <- do.call(rbind, lista_selected)                #create datatables from list
+  output <- do.call(rbind, lista_selected)                #create dataframe from list
   mean(output[,pollutant],na.rm=TRUE)
-  }
+}
+
+complete  <- function(directory, id = 1:332) {
+  files_full <- list.files(directory, full.names=TRUE)    #get full list of files names
+  files_selected=vector()
+  for (i in id){
+    files_selected=c(files_selected,files_full[i])  }       #extract relevant file names
+  
+  lista_selected=lapply(files_selected, read.csv)         #read data from relevant files to the list
+  
+  valid=vector()
+    for (i in id) {
+      valid=c(valid,sum(complete.cases(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate']))) #calculate valid cases for both variables
+      }       
+  validcases=as.data.frame(cbind(c(id),valid)) #put it to dataframe
+  names(validcases)[1]='id'                    #change name of variables
+  validcases
+}
+
+corr  <- function(directory, threshold =0 ,id = 1:332) {
+  files_full <- list.files(directory, full.names=TRUE)    #get full list of files names
+  files_selected=vector()
+  for (i in id){
+    files_selected=c(files_selected,files_full[i])  }       #extract relevant file names
+  
+  lista_selected=lapply(files_selected, read.csv)         #read data from relevant files to the list
+  
+  corrout=vector()
+  for (i in id) {
+    if (sum(complete.cases(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate']))>=threshold) {
+      corrout=corr(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate'])
+    }
+  }       
+#   validcases=as.data.frame(cbind(c(id),valid)) #put it to dataframe
+#   names(validcases)[1]='id'                    #change name of variables
+#   validcases
+}
+
+
+
+debug(corr)
+a=corr("specdata", id= 1:10)
+
+
+corr (c(1:10,c(20:29)))
+
+debug(complete)
+a=complete("specdata", 1:332)
+a
+class(a)
+names(a)[1]='id'
+a[,1]
+
+undebug(complete)
+
+a=lapply(out,mean)
+
+a=(out)
+str(a)
+a$sulfate
+
+b=sum(complete.cases(a[[2]][c('sulfate','nitrate')]))
+b
+lapply(a[[2]]['sulfate'],sum, na.rm=TRUE)
+lapply(a[[1]][c('sulfate','nitrate')],is.na)
+m=lapply(a[[1]][c('sulfate','nitrate')],complete.cases)
+m=lapply(a[[1]][c('sulfate','nitrate')],complete.cases(a[[1]]))
+sum(m)
+
+complete.cases(a[[1]]['sulfate'],a[[1]]['nitrate'])
+as.data.frame(cbind(c(1:10),c(11:20)))
+
+good <- sum(complete.cases(a[[1]]['sulfate'],a[[1]]['nitrate']))
+sum(good)
 
 debug(pollutantmean)
 undebug(pollutantmean)
