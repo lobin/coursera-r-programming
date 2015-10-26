@@ -37,7 +37,7 @@ complete  <- function(directory, id = 1:332) {
   validcases
 }
 
-corr  <- function(directory, threshold =0 ,id = 1:332) {
+corrf  <- function(directory, threshold =400 ,id = 1:332) {
   files_full <- list.files(directory, full.names=TRUE)    #get full list of files names
   files_selected=vector()
   for (i in id){
@@ -47,10 +47,14 @@ corr  <- function(directory, threshold =0 ,id = 1:332) {
   
   corrout=vector()
   for (i in id) {
-    if (sum(complete.cases(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate']))>=threshold) {
-      corrout=corr(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate'])
-    }
-  }       
+    if (sum(complete.cases(lista_selected[[i]]['sulfate'],lista_selected[[i]]['nitrate']))>=threshold) #calculate number of valid cases and check threshold
+      {
+      corrout=c(corrout,cor(x=lista_selected[[i]]['sulfate'],y=lista_selected[[i]]['nitrate'],use="pairwise.complete.obs")) #calculate correlation for valid cases
+      }
+      else {corrout=c(corrout,0) #if valid cases below threshold add o to result
+      }
+  }    
+  corrout
 #   validcases=as.data.frame(cbind(c(id),valid)) #put it to dataframe
 #   names(validcases)[1]='id'                    #change name of variables
 #   validcases
@@ -58,13 +62,15 @@ corr  <- function(directory, threshold =0 ,id = 1:332) {
 
 
 
-debug(corr)
-a=corr("specdata", id= 1:10)
+
+debug(corrf)
+a=corrf("specdata", id= 1:332)
 
 
 corr (c(1:10,c(20:29)))
 
 debug(complete)
+a=complete("specdata", 1:10)
 a=complete("specdata", 1:332)
 a
 class(a)
