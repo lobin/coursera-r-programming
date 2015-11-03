@@ -37,6 +37,7 @@ complete  <- function(directory, id = 1:332) {
   validcases
 }
 
+
 corrf  <- function(directory, threshold =400 ,id = 1:332) {
   files_full <- list.files(directory, full.names=TRUE)    #get full list of files names
   files_selected=vector()
@@ -61,11 +62,13 @@ corrf  <- function(directory, threshold =400 ,id = 1:332) {
 }
 
 
-
+ls()
+Rprof("a",corrf("specdata", id= 1:332))
 
 debug(corrf)
-a=corrf("specdata", id= 1:332)
-
+Rprof("A")
+aa=corrf("specdata", id= 1:332)
+summaryRprof("A")
 
 corr (c(1:10,c(20:29)))
 

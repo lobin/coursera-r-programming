@@ -73,7 +73,7 @@ Plotting the Likelihood
 	x <- seq(1.7, 1.9, len = 100)
 	y <- sapply(x, nLL)
 
-	plot(x, exp(-(y - min(y))), type = "1")
+	plot(x, exp(-(y - min(y))),type='l')
 
 ![Negative Log likelihood](img/lecture-06-negative-log-likelihood.png)
 
